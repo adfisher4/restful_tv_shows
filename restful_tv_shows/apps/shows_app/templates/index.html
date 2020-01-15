@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="m-5">
+    <h1>All Shows</h1>
+    <table class="col table">
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Network</th>
+        <th scope="col">Release Date</th>
+        <th scope="col">Actions</th>
+        {% for one_show in all_shows %}
+        <tr scope="row">
+            <td>{{ one_show.id }}</td>
+            <td>{{ one_show.name }}</td>
+            <td>{{ one_show.network }}</td>
+            <td>{{ one_show.release_date }}</td>
+            <td><a href="/shows/view_show/{{one_show.id}}">Show</a> | <a href="/shows/edit_show_page/{{one_show.id}}">Edit</a> |<a href="/shows/delete_show/{{one_show.id}}" method="GET">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/shows/new_show" method="GET">Add a New Show</a>
+    </div>
+
+</body>
+
+</html>
